@@ -43,6 +43,7 @@ export const login = async (req, res) => {
     }
     const token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: "1h"});
     res.status(200).send(token);
+    
   } catch (err) {
     res.status(500).json({ message: "Something went wrong" });
   }

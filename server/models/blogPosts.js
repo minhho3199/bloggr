@@ -10,22 +10,19 @@ const PostSchema = new Schema({
         type: String,
         required: true,
     },
-    // author: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "users",
-    //     required: true
-    // },
     author: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true
     },
     postType: {
         type: Number,
-        default: 0,
+        default: 1,
     },
-    createdAt: {
-        type: Date,
-        default: new Date()
-    },
+    // createdAt: {
+    //     type: Date,
+    //     default: new Date()
+    // },
 })
 
 const BlogPosts = mongoose.model("posts", PostSchema);

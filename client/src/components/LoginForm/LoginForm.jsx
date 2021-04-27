@@ -18,7 +18,6 @@ import {
 	Title
 } from "./styles";
 import { resetLoginState, loginStart } from './loginSlice';
-import Navbar from '../Navbar/Navbar';
 
 
 const LoginForm = () => {
@@ -53,7 +52,6 @@ const LoginForm = () => {
 
 	return (
 		<div>
-			<Navbar />
 			<BackgroundContainer>
 				<Container>
 					<StyledCard>

@@ -16,7 +16,6 @@ import {
   StyledNotification,
   Title
 } from "./styles";
-import Navbar from '../Navbar/Navbar';
 import { resetRegisterState, registerStart } from './registerSlice';
 import { Redirect } from 'react-router';
 
@@ -60,7 +59,6 @@ const RegisterForm = () => {
 
   return (
     <div>
-      <Navbar />
       <BackgroundContainer>
         <Container>
           <StyledCard>

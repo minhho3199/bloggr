@@ -1,5 +1,5 @@
 import { Form } from "formik";
-import { Button, Card, Input, Notification } from "react-rainbow-components";
+import { Button, Card, Input, Notification, Textarea, Picklist } from "react-rainbow-components";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,6 +11,7 @@ export const BackgroundContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const Container = styled.div`
   /* margin: auto; */
   width: 100%;
@@ -75,11 +76,19 @@ export const StyledInput = styled(Input)`
   label {
     font-size: 20px;
   }
+`;
+
+export const StyledTextArea = styled(Textarea)`
+  margin-bottom: 15px;
+
+  label {
+    font-size: 20px;
+  }
   input,
   input:focus {
     padding: 25px 1rem 25px 2.35rem;
   }
-`;
+`
 export const StyledForm = styled(Form)`
   padding: 20px;
   width: 70%;
@@ -95,4 +104,9 @@ export const StyledButton = styled(Button)`
   padding: 10px;
   font-size: 20px;
   width: 100%;
+`;
+export const StyledPicklist = styled(Picklist)`
+  label {
+    font-size: 20px;
+  }
 `;
