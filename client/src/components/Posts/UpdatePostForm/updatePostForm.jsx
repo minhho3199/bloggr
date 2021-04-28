@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from "react-router-dom";
 import * as Yup from "yup";
@@ -22,14 +22,9 @@ import { updatePostStart } from './updatePostSlice';
 import { Option } from "react-rainbow-components";
 
 
-const UpdatePostForm = (props) => {
+const UpdatePostForm = () => {
 	const postUpdateState = useSelector(state => state.postUpdateState);
 	const dispatch = useDispatch();
-
-	// useEffect(() => {
-	// 	dispatch(resetUpdatePostState());
-	// 	dispatch(getPostInfoStart({ postId }));
-	// }, [dispatch, postId]);
 
 	console.log(postUpdateState.post);
 	if (!("usertoken" in localStorage)) {

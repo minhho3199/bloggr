@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card } from "react-rainbow-components";
+import { Card, Notification } from "react-rainbow-components";
 import { Link } from "react-router-dom";
 
 export const StyledCard = styled(Card)`
@@ -21,5 +21,16 @@ export const StyledLink = styled(Link)`
   :hover {
     text-decoration: none;
     filter: brightness(90%);
+  }
+`;
+
+export const StyledNotification = styled(Notification)`
+  width: 70%;
+  margin-top: 20px;
+  border: 0;
+  box-shadow: 0 0 0 0;
+  h1 {
+    font-size: 20px;
+    line-height: 1.5;
   }
 `;

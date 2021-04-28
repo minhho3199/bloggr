@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux"
 import * as Yup from "yup";
 import { Field, Formik } from "formik";
-import { faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faMailBulk, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   BackgroundContainer,
@@ -41,7 +41,7 @@ const RegisterForm = () => {
   const validateSchema = Yup.object({
     email: Yup.string().email("Invalid email format").required("Email is required"),
     name: Yup.string().required("Name is required"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string().min(8, "Password must have at least 8 characters").required("Password is required"),
     passwordConfirmation: Yup.string()
       .test('passwords-match', 'Passwords must match', function (value) {
         return this.parent.password === value
@@ -76,7 +76,7 @@ const RegisterForm = () => {
                     name="email"
                     label="Email"
                     as={StyledInput}
-                    icon={<FontAwesomeIcon icon={faUser} />}
+                    icon={<FontAwesomeIcon icon={faMailBulk} />}
                     error={errors.email && touched.email ? errors.email : null}
                     placeholder="Enter email"
                   />

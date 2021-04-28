@@ -1,7 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { getPosts } from "../getPostsSlice";
 
 const initialState = {
   postId: null,
@@ -62,7 +61,7 @@ export function* deletePost(action) {
     yield call(axios.delete, `/posts/delete/${postId}`, config);
     yield put(deletePostSuccess());
     yield put(setDeleteModalOpen({ postId: null, isDeleteModalOpen: false }));
-    yield put(getPosts());
+    window.location.href = "/home";
   } catch (e) {
     if (e.response?.data) {
       yield put(deletePostFailed(e.response.data));

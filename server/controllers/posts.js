@@ -1,13 +1,15 @@
 import BlogPosts from "../models/blogPosts.js";
-
+import mongoose from "mongoose";
 export const getPosts = async (req, res) => {
 	try {
-		const posts = await BlogPosts.find().populate('author', 'name');
-		const filteredPosts = posts.filter((post) => {
-			return post.postType === 1 || (post.postType === 2 && post.author._id.toString() === req.params.userId);
-		});
-		console.log(filteredPosts);
-		res.status(200).json(filteredPosts);
+		const count = Number(req.query.count);
+		console.log(count);
+		const userId = mongoose.Types.ObjectId(req.params.userId);
+		const posts = await BlogPosts.find()
+		.or([{ postType: 1 }, { postType: 2, "author": userId }])
+		.skip(count).limit(5).populate('author', 'name');
+		
+		return res.status(200).json(posts);
 
 	} catch (err) {
 		return res.status(500).json(
@@ -42,8 +44,7 @@ export const updatePost = async (req, res) => {
 	const post = req.body;
 	try {
 		const updatedPost = await BlogPosts.findByIdAndUpdate({ _id: req.params.postId }, post, { new: true });
-		console.log(updatedPost);
-		return res.json(200).json(updatedPost);
+		res.status(200).json(updatedPost);
 	} catch (err) {
 		return res.status(500).json({ message: "Something went wrong" });
 	}

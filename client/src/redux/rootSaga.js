@@ -5,6 +5,7 @@ import { createPost, createPostStart } from "../components/Posts/CreatePostForm/
 import { fetchPosts, getPosts } from "../components/Posts/getPostsSlice";
 import { deletePost, startPostDelete } from "../components/Posts/Post/postDeleteSlice";
 import { updatePostStart, updatePost } from "../components/Posts/UpdatePostForm/updatePostSlice";
+import { signOut, signOutStart } from "../components/Navbar/signOut";
 
 function* watchLoginSaga() {
 	yield takeLatest(loginStart, startLogin);
@@ -30,6 +31,10 @@ function* watchPostUpdateSaga() {
 	yield takeLatest(updatePostStart, updatePost);
 }
 
+function* watchSignOutSaga() {
+	yield takeLatest(signOutStart, signOut);
+}
+
 export function* rootSaga() {
 	yield all([
 		watchLoginSaga(),
@@ -38,5 +43,6 @@ export function* rootSaga() {
 		watchGetPostsSaga(),
 		watchPostDeleteSaga(),
 		watchPostUpdateSaga(),
+		watchSignOutSaga()
 	]);
 }

@@ -1,7 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { getPosts } from "../getPostsSlice";
 
 const initialState = {
   post: null,
@@ -52,7 +51,6 @@ export function* updatePost(action) {
       },
     };
     const { postId, title, message, author, postType } = action.payload;
-    console.log(action.payload);
     yield call(axios.post, `/posts/update/${postId}`, { title, message, author, postType }, config);
     yield put(updatePostSuccess());
     window.location.href = "/home";

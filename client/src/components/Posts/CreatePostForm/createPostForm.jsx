@@ -19,7 +19,7 @@ import {
 } from "./styles";
 import { getLoginData } from '../../utils/utility';
 import { createPostStart, resetCreatePostState } from './createPostSlice';
-import { Picklist, Option } from "react-rainbow-components";
+import { Option } from "react-rainbow-components";
 
 
 const CreatePostForm = () => {

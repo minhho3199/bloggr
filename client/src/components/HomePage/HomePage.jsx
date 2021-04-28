@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 const HomePageContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 30px;
 `
 const StyledLink = styled(Link)`
@@ -16,9 +17,8 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     filter: brightness(90%);
   }
-  margin-left: 50px;
-  /* flex-grow: 1; */
-  width: 10%;
+  margin-bottom: 20px;
+  width: 50%;
 `;
 
 const StyledButton = styled(Button)`
@@ -27,15 +27,15 @@ const StyledButton = styled(Button)`
 const HomePage = () => {
 
 
-  if(!("usertoken" in localStorage)) {
+  if (!("usertoken" in localStorage)) {
     return <Redirect to="/" />
   }
   return (
     <HomePageContainer>
-      <Posts />
       <StyledLink to="/create">
         <StyledButton type="submit" label="Create Post" variant="brand" />
       </StyledLink>
+      <Posts />
     </HomePageContainer>
   );
 }

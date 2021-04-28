@@ -3,7 +3,7 @@ import { ButtonMenu, MenuItem, Modal, Button } from "react-rainbow-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { getLoginData } from '../../utils/utility';
-import { StyledCard, PostAuthor, PostTitle, MessageContainer, StyledLink } from "./styles";
+import { StyledCard, PostAuthor, PostTitle, MessageContainer, StyledLink, StyledNotification } from "./styles";
 import { useDispatch, useSelector } from 'react-redux';
 import { setDeleteModalOpen, startPostDelete } from './postDeleteSlice';
 import { setPostInfo } from "..//UpdatePostForm/updatePostSlice";
@@ -12,6 +12,7 @@ const Post = (props) => {
   const { postId, title, message, author, postType } = props;
   const postInfo = { postId, title, message, author, postType };
   const postDeleteState = useSelector(state => state.postDeleteState);
+
   const dispatch = useDispatch();
   return (
     <div>
@@ -60,7 +61,23 @@ const Post = (props) => {
               />
             </div>
           }
-        >
+        >        
+        {postDeleteState.error && (
+          <StyledNotification
+            title="An Error Occured"
+            hideCloseButton={true}
+            description={postDeleteState.error.message}
+            icon="error"
+          />
+        )}
+          {postDeleteState.isDeleteSuccess && (
+            <StyledNotification
+              title="Post Deleted Successfully"
+              hideCloseButton={true}
+              description="You will be redirected to the homepage shortly"
+              icon="success"
+            />
+          )}
           <h1>
             Are you sure you want to delete this blog post?
         </h1>
