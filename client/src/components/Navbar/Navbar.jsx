@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Typography, Menu, MenuItem, IconButton } from "@material-ui/core"
-import { MenuIcon, AccountCircle } from "@material-ui/icons";
+import { AccountCircle } from "@material-ui/icons";
 import useStyles from "./styles";
 import { useDispatch } from 'react-redux';
 import { signOutStart } from './signOut';

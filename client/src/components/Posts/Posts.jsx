@@ -12,7 +12,7 @@ const Posts = () => {
 
   useEffect(() => {
     dispatch(getPosts({ count: getPostsState.count }));
-  }, [])
+  }, [dispatch])
 
   const loadMore = () => {
     dispatch(getPosts({ count: getPostsState.count }));

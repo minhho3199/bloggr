@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, HashRouter, BrowserRouter, Router } from "react-router-dom"
+import { Switch, Route, BrowserRouter } from "react-router-dom"
 import LoginForm from "./components/LoginForm/LoginForm";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import HomePage from "./components/HomePage/HomePage";

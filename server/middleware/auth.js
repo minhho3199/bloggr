@@ -12,7 +12,7 @@ function auth(req, res, next) {
     next();
   } catch (e) {
     res.status(400).json({
-      message: "token is not valid"
+      message: "Token is not valid"
     });
   }
 }

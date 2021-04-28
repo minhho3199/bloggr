@@ -1,9 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import history from "../utils/history";
 import jwt_decode from "jwt-decode";
-import { createHashHistory } from "history";
 import { saveLoginData } from "../utils/utility";
 
 const initialState = {
@@ -28,7 +26,7 @@ const loginSlice = createSlice({
 			state.isLoading = false;
 			state.error = action.payload;
 		},
-		resetLoginState(state) {
+		resetLoginState() {
 			return initialState;
 		}
 	}
